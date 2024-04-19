@@ -1,0 +1,90 @@
+﻿@model List<Employee>
+
+<style>
+    /* Style for the button */
+    .add-button {
+        float: right;
+        margin-top: -40px;
+        margin-right: 10px;
+    }
+
+        /* Style for the button itself */
+        .add-button button {
+            background-color: lightgrey;
+            color: white;
+            border: none;
+            height: 40px;
+            width: 170px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            /* Hover effect */
+            .add-button button:hover {
+                background-color: darkgray; /* Darker background color on hover */
+            }
+
+    /* Improved table styles */
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 12px; /* Increased padding for better spacing */
+        text-align: left;
+        border-bottom: 1px solid #ddd; /* Lighter border color */
+    }
+
+    th {
+        background-color: lightblue;
+        color: white;
+    }
+
+    /* Alternate row color */
+    tbody tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    /* Links in table cells */
+    td a {
+        color: #007bff; /* Blue color for links */
+        text-decoration: none;
+    }
+
+        td a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+</style>
+
+<h2>Customer</h2>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Employee ID</th>
+            <th>Employee Name</th>
+            <th>Employee Email</th>
+            <th>Employee Department</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>
+                    <a href="/Employee/Details/@employee.employeeId">@employee.employeeId</a>
+                </td>
+                <td>@employee.firstName @employee.lastName</td>
+                <td>@employee.email</td>
+                <td>@employee.department</td>
+
+
+            </tr>
+        }
+    </tbody>
+</table>

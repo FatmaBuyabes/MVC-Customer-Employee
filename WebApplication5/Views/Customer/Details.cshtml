@@ -1,0 +1,53 @@
+﻿@model WebApplication5.Models.Customer
+
+<style>
+    /* Style for the customer details section */
+    .customer-details {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px 0;
+        background-color: #f9f9f9;
+    }
+
+    .customer-details h4 {
+        color: #333;
+    }
+
+    .customer-details dl {
+        margin: 0;
+        padding: 0;
+    }
+
+    .customer-details dt {
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+    .customer-details dd {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+</style>
+
+<div class="customer-details">
+    <h2>Customer Details</h2>
+
+    <div>
+        <h4>Customer</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>Customer ID</dt>
+            <dd>@Model.id</dd>
+
+            <dt>Customer Name</dt>
+            <dd>@Model.name</dd>
+
+            <dt>Customer Email</dt>
+            <dd>@Model.email</dd>
+
+            <dt>Customer Phone</dt>
+            <dd>@Model.phone</dd>
+        </dl>
+    </div>
+</div>
