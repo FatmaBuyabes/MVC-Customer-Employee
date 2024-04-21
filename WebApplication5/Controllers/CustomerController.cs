@@ -28,5 +28,32 @@ namespace WebApplication5.Controllers
             }
             return View(customer);
         }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(AddCustomerForm model)
+        {
+            if (ModelState.IsValid)
+            {
+                var name = model.name;
+                var email = model.email;
+                var phone = model.phone;
+
+                var newCustomer = new Customer();
+                newCustomer.name = name;
+                newCustomer.email = email;
+                newCustomer.phone = phone;
+                customers.Add(newCustomer);
+                return RedirectToAction("Index");
+            }
+            return View("Add");
+
+        }
     }
 }
+
