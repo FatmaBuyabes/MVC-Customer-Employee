@@ -25,6 +25,34 @@ namespace WebApplication5.Controllers
             }
             return View(employee);
         }
+
+        [HttpGet]
+        public IActionResult Add()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Add(AddEmployeeForm model)
+        {
+            if (ModelState.IsValid)
+            {
+                var firstName = model.firstName;
+                var lastName = model.lastName;
+                var email = model.email;
+                var department = model.department;
+
+                var newEmployee = new Employee();
+                newEmployee.firstName = firstName;
+                newEmployee.lastName = lastName;
+                newEmployee.department = department;
+                newEmployee.email = email;
+                employees.Add(newEmployee);
+                return RedirectToAction("Index");
+            }
+            return View("Add");
+
+        }
     }
 }
 
